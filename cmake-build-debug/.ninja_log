@@ -1,0 +1,21 @@
+# ninja log v5
+3	414	7086388312617744	CMakeFiles/sklep.dir/main.cpp.obj	50b639bd77e4c63b
+19	417	7086370211441013	CMakeFiles/sklep.dir/Produkt.cpp.obj	cb7665f7be24ce72
+9	446	7082600209809256	CMakeFiles/sklep.dir/zamowienie.cpp.obj	8b06ec65f26ce904
+10	640	7083005832064824	CMakeFiles/sklep.dir/magazyn.cpp.obj	d7f4e9acedfbf818
+414	532	7086388313767998	sklep.exe	c1f79b20bf5c0e88
+8	492	7086386202280038	CMakeFiles/sklep.dir/Zamowienie.cpp.obj	f6252ceaec555fef
+3	473	7083411814921155	CMakeFiles/sklep.dir/klient.cpp.obj	8d8b515a9ae945fb
+8	393	7086938354911798	build.ninja	af9bdfd97b11538
+13	516	7086386202520081	CMakeFiles/sklep.dir/Klient.cpp.obj	a75c9ff7bd972130
+18	650	7086386203860376	CMakeFiles/sklep.dir/Sklep.cpp.obj	6c1e69561b2d5fa0
+18	434	7086940071671307	CMakeFiles/sklep.dir/Produkt.cpp.obj	cb7665f7be24ce72
+8	534	7086940072671532	CMakeFiles/sklep.dir/Zamowienie.cpp.obj	f6252ceaec555fef
+12	629	7086940073621750	CMakeFiles/sklep.dir/Klient.cpp.obj	a75c9ff7bd972130
+3	702	7086940074361918	CMakeFiles/sklep.dir/main.cpp.obj	50b639bd77e4c63b
+22	814	7086940075472171	CMakeFiles/sklep.dir/Sklep.cpp.obj	6c1e69561b2d5fa0
+814	972	7086940077009603	sklep.exe	c1f79b20bf5c0e88
+3	836	7086940550777854	CMakeFiles/sklep.dir/main.cpp.obj	50b639bd77e4c63b
+836	1077	7086940553168399	sklep.exe	c1f79b20bf5c0e88
+4	609	7086942108153135	CMakeFiles/sklep.dir/Sklep.cpp.obj	6c1e69561b2d5fa0
+610	758	7086942109603454	sklep.exe	c1f79b20bf5c0e88

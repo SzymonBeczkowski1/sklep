@@ -1,0 +1,4 @@
+Myszka 99 23 42
+Klawiatura 199 23 312
+Monitor 599 23 4256
+MLOdyJEZ 4747 12 9999
