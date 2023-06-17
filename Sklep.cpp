@@ -34,6 +34,7 @@ void Sklep::wyswietlDostepneProdukty() {
         cout << "Nazwa: " << produkt.nazwaProduktu << endl;
         cout << "Cena: " << produkt.cenaSztuki << "PLN" << endl;
         cout << "Stawka VAT: " << produkt.stawkaVAT << "%" << endl;
+        cout << "Dostepna ilosc: " << produkt.ilosc << "%" << endl;
         cout << endl;
     }
 }

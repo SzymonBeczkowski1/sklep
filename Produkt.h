@@ -12,8 +12,8 @@ public:
     int ilosc;
 
     Produkt(string nazwaProduktu, float cenaSztuki, float stawkaVAT, int ilosc);
-
     Produkt();
+
 
 };
 

@@ -7,13 +7,12 @@
 using namespace std;
 
 enum sposobPlatnosci {
-    blik,
     przelew,
     zaPobraniem
 
 };
 
-class Zamowienie{
+class Zamowienie : public Produkt{
 public:
 
     Produkt produkt;
@@ -21,7 +20,7 @@ public:
     string dataZamowienia;
     sposobPlatnosci sposobPlatnosciZamowienia;
 
-    Zamowienie(Produkt produkt, int iloscSztuk, string dataZamowienia);
+    Zamowienie(string nazwaProduktu, float cenaSztuki, float stawkaVAT, int ilosc, int iloscSztuk, string dataZamowienia, sposobPlatnosci sposobPlatnosci1);
 
 };
 

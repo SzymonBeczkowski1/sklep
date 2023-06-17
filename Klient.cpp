@@ -38,3 +38,11 @@ void Klient::modyfikujKlienta(string imie, string nazwisko, string adres) {
     this->adres = adres;
 }
 
+Zamowienie Klient::modyfikujZamowienie(string nazwaProduktu) {
+    for (Zamowienie &zamowienie: zamowieniaKlienta) {
+        if (zamowienie.produkt.nazwaProduktu == nazwaProduktu)
+            return zamowienie;
+    }
+}
+
+

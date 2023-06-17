@@ -3,10 +3,14 @@
 #include "Produkt.h"
 
 
-Zamowienie::Zamowienie(Produkt produkt, int iloscSztuk, string dataZamowienia) {
-    this->produkt = produkt;
+Zamowienie::Zamowienie(string nazwaProduktu, float cenaSztuki, float stawkaVAT, int ilosc, int iloscSztuk, string dataZamowienia, sposobPlatnosci sposobPlatnosci1){
+    this->nazwaProduktu = nazwaProduktu;
+    this->cenaSztuki = cenaSztuki;
+    this->stawkaVAT = stawkaVAT;
+    this->ilosc = ilosc;
+
     this->iloscSztuk = iloscSztuk;
     this->dataZamowienia = dataZamowienia;
-    //this->sposobPlatnosciZamowienia = sposobPlatnosciZamowienia;
+    this->sposobPlatnosciZamowienia = sposobPlatnosci1;
 
 }

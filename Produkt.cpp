@@ -11,3 +11,4 @@ Produkt::Produkt(string nazwaProduktu, float cenaSztuki, float stawkaVAT, int il
 Produkt::Produkt() {
 
 }
+
