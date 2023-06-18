@@ -12,7 +12,7 @@ enum sposobPlatnosci {
 
 };
 
-class Zamowienie : public Produkt{
+class Zamowienie : public Produkt {
 public:
 
     Produkt produkt;
@@ -20,7 +20,8 @@ public:
     string dataZamowienia;
     sposobPlatnosci sposobPlatnosciZamowienia;
 
-    Zamowienie(string nazwaProduktu, float cenaSztuki, float stawkaVAT, int ilosc, int iloscSztuk, string dataZamowienia, sposobPlatnosci sposobPlatnosci1);
+    Zamowienie(string nazwaProduktu, float cenaSztuki, float stawkaVAT, int ilosc, int iloscSztuk,
+               string dataZamowienia, sposobPlatnosci sposobPlatnosci1);
 
 };
 

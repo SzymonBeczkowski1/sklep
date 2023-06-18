@@ -12,7 +12,14 @@ int main() {
     bool loop = true;
     int operacja;
     while (loop) {
-        cout << "Podaj numer operacji do wykonania";
+        cout << "Podaj numer operacji do wykonania" << endl
+             << "1 - dodaj klienta" << endl
+             << "2 - modyfikuj klienta " << endl
+             << "3 - zapis klientow do pliku " << endl
+             << "4 - zloz zamowienie " << endl
+             << "5 - edytuj zamowienie " << endl
+             << "6 - wyswietl i zapisz do plikow wszystkie zamowienia " << endl
+             << "7 - wyswietl dostepne produkty " << endl;
         cin >> operacja;
 
 
@@ -54,7 +61,6 @@ int main() {
                 cin >> nowyAdres;
                 klient.modyfikujKlienta(noweImie, noweNazwisko, nowyAdres);
                 cout << "Klient zmodyfikowany pomyslnie" << endl;
-
                 break;
 
             }
@@ -72,11 +78,11 @@ int main() {
                 cout << "---Podaj imie i nazwisko klienta ktory dokonuje zakupu---" << endl;
                 cin >> imie >> nazwisko;
                 Klient klient = sklep.znajdzKlienta(imie, nazwisko);
-                //cout << "Klient " << klient.imie << klient.nazwisko << "kupuje";
 
                 string nazwaProduktu, data, platnosc;
                 sposobPlatnosci sposobPlatnosci = przelew;
                 int zamawianaIlosc;
+                bool zlozone = false;
                 cout << "Podaj nazwe produktu:";
                 cin >> nazwaProduktu;
                 cout << "Podaj ilosc:";
@@ -95,25 +101,28 @@ int main() {
                     if (nazwaProduktu == produkt.nazwaProduktu && produkt.ilosc > zamawianaIlosc) {
                         produkt.ilosc -= zamawianaIlosc;
 
-                        cout << "znaleziono dobry produkt";
+                        cout << "znaleziono ten produkt" << endl;
+                        Zamowienie zamowienie = Zamowienie(produkt.nazwaProduktu, produkt.cenaSztuki, produkt.stawkaVAT,
+                                                           produkt.ilosc, zamawianaIlosc, data, sposobPlatnosci);
 
-                        klient.zamowieniaKlienta.push_back(Zamowienie(produkt.nazwaProduktu, produkt.cenaSztuki, produkt.stawkaVAT, produkt.ilosc, zamawianaIlosc, data, sposobPlatnosci));
-                        //cout << "Zamowienie zrealizowane" << produkt.ilosc << " " << produkt.nazwaProduktu << endl;
-
-                        for (Zamowienie& zamowienie : klient.zamowieniaKlienta) {
-                            cout << "Zamowienie: " << zamowienie.nazwaProduktu << " Dnia: " << zamowienie.dataZamowienia << endl;
-                        }
+                        klient.zamowieniaKlienta.push_back(zamowienie);
+                        sklep.dodajZamowienie(zamowienie);
+                        cout << "Zamowienie zrealizowane" << endl;
+                        zlozone = true;
 
                         break;
                     }
                 }
+
+
+                if (!zlozone) cout << "Operacja nieudana, zla nazwa produktu lub za mala ilosc na magazynie" << endl;
+
 
                 break;
 
             }
 
             case 5: {
-                //edycja zamowienia
                 string imie, nazwisko, nazwaProduktu;
                 cout << "---Podaj imie, nazwisko i zamawiany produkt do edycji ---" << endl;
                 cin >> imie >> nazwisko >> nazwaProduktu;
@@ -131,36 +140,19 @@ int main() {
                 cin >> dataZamowienia;
                 zamowienieDoEdycji.dataZamowienia = dataZamowienia;
 
+
                 break;
             }
             case 6:
+                sklep.wyswietlWszystkieZamowieniaIZapiszDoPlikow();
 
                 break;
             case 7:
                 sklep.wyswietlDostepneProdukty();
-
                 break;
 
-            case 8: {
-                for (Klient &klient: sklep.klienci) {
-                    //cout << klient.imie << " " << klient.nazwisko;
 
-                    if (klient.zamowieniaKlienta.empty())
-                        cout << "Brak zamówień dla klienta: " << klient.imie << " " << klient.nazwisko << endl;
-                    else {
-                        for (Zamowienie &zamowienie: klient.zamowieniaKlienta) {
-                            cout << "cos";
-//                            cout << klient.imie << " " << klient.nazwisko << " zamowil"
-//                                 << zamowienie.produkt->nazwaProduktu << " dnia " << zamowienie.dataZamowienia
-//                                 << endl;
-                        }
-                    }
-
-
-                }
-            }
-
-            case 9:
+            case 8:
                 loop = false;
                 break;
             default:

@@ -34,7 +34,7 @@ void Sklep::wyswietlDostepneProdukty() {
         cout << "Nazwa: " << produkt.nazwaProduktu << endl;
         cout << "Cena: " << produkt.cenaSztuki << "PLN" << endl;
         cout << "Stawka VAT: " << produkt.stawkaVAT << "%" << endl;
-        cout << "Dostepna ilosc: " << produkt.ilosc << "%" << endl;
+        cout << "Dostepna ilosc: " << produkt.ilosc << endl;
         cout << endl;
     }
 }
@@ -52,6 +52,20 @@ Klient Sklep::znajdzKlienta(string imie, string nazwisko) {
         if (klient.imie == imie && klient.nazwisko == nazwisko)
             return klient;
     }
+
+    string adres, plecSTR;
+    plec plec;
+    cout << "---Nie znaleziono klient o tym imieniu i nazwisku, dodaj nowego klienta---" << endl;
+    cout << "Podaj adres:";
+    cin >> adres;
+    cout << "Podaj plec (m/k):";
+    cin >> plecSTR;
+    if (plecSTR == "k") plec = kobieta;
+    else plec = mezczyzna;
+    Klient klient(imie, nazwisko, adres, plec);
+    klienci.push_back(klient);
+    cout << "Klient dodany pomyslnie" << endl;
+    return klient;
 }
 
 void Sklep::ZapiszKlientowDoPlikuTxt() {
@@ -66,11 +80,47 @@ void Sklep::ZapiszKlientowDoPlikuTxt() {
 
 void Sklep::ZapiszKlientowDoPlikuBinarnego() {
     ofstream plik;
-    plik.open("klienci.bin", ios_base::out|ios_base::binary);
+    plik.open("klienci.bin", ios_base::out | ios_base::binary);
 
 
     for (Klient &klient: klienci) {
-        //plik.write(klient.imie, sizeof(klient.imie));
+        string dane = klient.imie + " " + klient.nazwisko + " " + klient.adres + "\n";
+        const char *daneBinarne = dane.c_str();
+        plik.write(daneBinarne, dane.size());
     }
     plik.close();
+}
+
+void Sklep::wyswietlWszystkieZamowieniaIZapiszDoPlikow() {
+    string sposobPlatnosciStr;
+    ofstream plik;
+    plik.open("zamowienia.txt", ios_base::out);
+
+    ofstream plikBin;
+    plikBin.open("zamowienia.bin", ios_base::out | ios_base::binary);
+
+
+    for (Zamowienie &zamowienie: zamowienia) {
+        if (zamowienie.sposobPlatnosciZamowienia == przelew) sposobPlatnosciStr = "przelew";
+        else sposobPlatnosciStr = "za pobraniem";
+
+        cout << "Nazwa: " << zamowienie.nazwaProduktu << " Dnia: " << zamowienie.dataZamowienia
+             << " Ilosc: " << zamowienie.iloscSztuk << " Stawka VAT: " << zamowienie.stawkaVAT
+             << " Sposob platnosci: " << sposobPlatnosciStr << " Koszt: "
+             << zamowienie.cenaSztuki * zamowienie.iloscSztuk << endl;
+
+        plik << "Nazwa: " << zamowienie.nazwaProduktu << " Dnia: " << zamowienie.dataZamowienia
+             << "Ilosc: " << zamowienie.iloscSztuk << " Stawka VAT: " << zamowienie.stawkaVAT
+             << "Sposob platnosci: " << sposobPlatnosciStr << " Koszt: "
+             << zamowienie.cenaSztuki * zamowienie.iloscSztuk << endl;
+
+
+        string dane = "Nazwa: " + zamowienie.nazwaProduktu + "Dnia " + zamowienie.nazwaProduktu + "\n";
+        const char *daneBinarne = dane.c_str();
+        plikBin.write(daneBinarne, dane.size());
+
+
+    }
+
+
 }

@@ -26,13 +26,10 @@ public:
     string plecToStr();
 
     Klient(string imie, string nazwisko, string adres, plec plecKlienta);
+
     void modyfikujKlienta(string imie, string nazwisko, string adres);
+
     Zamowienie modyfikujZamowienie(string nazwaProduktu);
-
-
-
-    void wypiszDane();
-    void zapisDoPlikuTxt();
 
 
 };

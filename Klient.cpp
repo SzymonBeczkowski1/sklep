@@ -13,19 +13,6 @@ Klient::Klient(string imie, string nazwisko, string adres, plec plecKlienta) {
     this->plecKlienta = plecKlienta;
 }
 
-void Klient::wypiszDane() {
-    cout << imie << nazwisko << adres;
-}
-
-void Klient::zapisDoPlikuTxt() {
-    ofstream plik;
-    plik.open("klienci.txt", ios_base::app);
-
-    if (plik.is_open()){
-        plik << "imie: " << imie << " nazwisko: " << nazwisko << " adres: " << adres << " plec: " << plecToStr() << endl;
-    }
-    plik.close();
-}
 
 string Klient::plecToStr() {
     if (plecKlienta == mezczyzna) return "mezczyzna";

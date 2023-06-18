@@ -24,6 +24,8 @@ public:
     void ZapiszKlientowDoPlikuTxt();
     void ZapiszKlientowDoPlikuBinarnego();
 
+    void wyswietlWszystkieZamowieniaIZapiszDoPlikow();
+
 
     void odczytProduktowZPliku();
     void wyswietlDostepneProdukty();
